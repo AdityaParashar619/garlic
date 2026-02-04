@@ -1,0 +1,427 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Will You Be My Valentine?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  height:100vh;
+  background:#0b0b10;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* subtle diagonal texture */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.035),
+    rgba(255,255,255,0.035) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+  pointer-events:none;
+}
+
+.container{
+  text-align:center;
+  max-width:700px;
+  padding:20px;
+}
+
+h1{
+  font-size:64px;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  margin-bottom:18px;
+}
+
+p{
+  font-size:16px;
+  color:rgba(255,255,255,0.65);
+  margin-bottom:40px;
+}
+
+.buttons{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+button{
+  padding:14px 44px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+}
+
+#yes{
+  background:white;
+  color:black;
+}
+
+#no{
+  background:#1a1a22;
+  color:white;
+  position:absolute;
+}
+
+/* hearts */
+.heart{
+  position:fixed;
+  font-size:20px;
+  animation:float 3s linear forwards;
+}
+
+@keyframes float{
+  0%{opacity:1; transform:translateY(0) scale(1);}
+  100%{opacity:0; transform:translateY(-200px) scale(1.8);}
+}
+
+/* success screen */
+.success{
+  position:fixed;
+  inset:0;
+  background:#0b0b10;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  display:none;
+}
+
+.success h2{
+  font-size:56px;
+  letter-spacing:-0.03em;
+  margin-bottom:16px;
+}
+
+.success p{
+  color:rgba(255,255,255,.7);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+  <h1>Will you be my Valentine?</h1>
+  <p>I made something simple, just to ask you this.</p>
+
+  <div class="buttons">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+</div>
+
+<div class="success" id="success">
+  <h2>Yay! ❤️</h2>
+  <p>You just made my day.</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const main = document.getElementById("main");
+const success = document.getElementById("success");
+
+/* NO button escapes */
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+/* YES click */
+yesBtn.addEventListener("click", () => {
+  main.style.display = "none";
+  success.style.display = "flex";
+  hearts();
+});
+
+/* heart confetti */
+function hearts(){
+  setInterval(()=>{
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random()*window.innerWidth + "px";
+    h.style.bottom = "0px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+  },200);
+}
+</script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chale Madam?</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* floating hearts background */
+        .bg-heart {
+            position: absolute;
+            font-size: 22px;
+            opacity: 0.35;
+            animation: float 8s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh);
+            }
+
+            to {
+                transform: translateY(-120vh);
+            }
+        }
+
+        /* main card */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 500px;
+            height: 300px;
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.25);
+            animation: pop 0.8s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ff4d88;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        button {
+            padding: 12px 26px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        #yes {
+            background: #ff4d88;
+            color: white;
+            margin-left: -12rem;
+        }
+
+        #yes:hover {
+            transform: scale(1.08);
+        }
+
+        #no {
+            margin-left: 10rem;
+            background: #ff4d88;
+            color: white;
+            position: absolute;
+        }
+
+        /* success */
+        .success {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #ffb6d5, #ffe6f0);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .success h2 {
+            font-size: 38px;
+            color: #ff2f75;
+            margin-bottom: 10px;
+        }
+
+        .success p {
+            color: #555;
+        }
+
+        /* heart burst */
+        .heart {
+            position: fixed;
+            font-size: 24px;
+            animation: burst 3s ease forwards;
+        }
+
+        @keyframes burst {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-200px) scale(1.6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- floating hearts -->
+    <script>
+        for (let i = 0; i < 20; i++) {
+            let h = document.createElement("div");
+            h.className = "bg-heart";
+            h.innerHTML = "💗";
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.animationDelay = Math.random() * 8 + "s";
+            document.body.appendChild(h);
+        }
+
+        
+    </script>
+
+    <div class="card" id="main">
+        <h1>Garlic Bread khane chale <b>Madam</b>? 💕</h1>
+        <p>I promise unlimited fries, chocolates, and care 🍫😊</p>
+
+        <div class="buttons">
+            <button id="yes">Yes 💌</button>
+            <button id="no">No 🙈</button>
+        </div>
+    </div>
+
+    <div class="success" id="success">
+        <h2>Yayyyy!! 💖🥰</h2>
+        <p>You just made my heart so happy </p>
+        <p>fass gye ab to aap...🫠</p>
+        <p>Thank You Cutie....💝</p>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+        const main = document.getElementById("main");
+        const success = document.getElementById("success");
+
+        /* NO button runs away */
+        noBtn.addEventListener("mouseover", () => {
+            noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+        });
+
+        /* YES click */
+        yesBtn.addEventListener("click", () => {
+            main.style.display = "none";
+            success.style.display = "flex";
+            hearts();
+        });
+
+        /* hearts animation */
+        function hearts() {
+            setInterval(() => {
+                const h = document.createElement("div");
+                h.className = "heart";
+                h.innerHTML = "💖";
+                h.style.left = Math.random() * window.innerWidth + "px";
+                h.style.bottom = "0";
+                document.body.appendChild(h);
+                setTimeout(() => h.remove(), 3000);
+            }, 150);
+        }
+    </script>
+
+</body>
+
+</html>
